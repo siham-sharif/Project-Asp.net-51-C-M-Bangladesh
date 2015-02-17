@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm("ShowChartFromDB", "Chart"))
+{
+
+    @Html.AntiForgeryToken()
+    <div>
+        <div class="form-group">
+            <label for="dateInfo" class="control-label col-md-2">Date Between </label>
+            <div class="col-md-4">
+                <input type="text" name="dateOne" id="dateOne" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="dateInfo" class="control-label col-md-2">And</label>
+            <div class="col-md-4">
+                <input type="text" name="dateTwo" id="dateTwo" class="form-control">
+            </div>
+        </div>
+    </div>
+    <br><br><br><br>
+    <div>
+        <div class="form-group">
+            <label for="districtInfo" class="control-label col-md-2">District Name</label>
+            <div class="col-md-4">
+                <select class="form-control col-md-4" name="districtName" id="districtName"></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="thanaInfo" class="control-label col-md-2"></label>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-default btn-lg col-md-offset-2 col-md-8 col-xs-12" id="submitButton" value="Submit">Craete Chart</button>
+            </div>
+        </div>
+    </div>
+
+}
+
+
+@section Scripts {
+    <script>
+
+        $(document).ready(function () {
+
+
+            $('#dateOne').datepicker({
+
+            });
+
+            $('#dateTwo').datepicker({
+
+            });
+
+            var dateDataOne;
+            var dateDataTwo;
+            $('#dateOne').change(function () {
+                var optionSelected = $(this).val();
+                var myData = { date: optionSelected };
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("ConvertDate", "Chart")',
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(myData),
+                    dataType: "json",
+                    success: function (data) {
+                        dateDataOne = data[0].Value;
+                    }
+
+                });
+            });
+
+            $('#dateTwo').change(function () {
+                var optionSelected = $(this).val();
+                var myData = { date: optionSelected };
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("ConvertDate", "Chart")',
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(myData),
+                    dataType: "json",
+                    success: function (data) {
+                        dateDataTwo = data[0].Value;
+                    }
+
+                });
+            });
+
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("GetDistrict", "Chart")',
+                contentType: "application/json; charset=utf-8",
+
+                success: function (data) {
+                    $('#districtName').empty().append('<option value="">Select District</option>');
+                    $.each(data, function (index, value) {
+                        $('#districtName').append($('<option />', {
+                            value: value.DistrictId,
+                            text: value.Name
+                        }));
+                    });
+                },
+            });
+
+        });
+    </script>
+}

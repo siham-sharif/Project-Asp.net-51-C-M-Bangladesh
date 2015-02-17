@@ -1,0 +1,133 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<br /><br /><br /><br />
+
+@using (Html.BeginForm("GetResult", "Map"))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label for="diseaseInfo" class="control-label col-md-2">Disease</label>
+        <div class="col-md-6">
+            <select class="form-control " name="diseaseName" id="diseaseName"></select>
+        </div>
+        <div class="col-md-4">
+            <button type="submit" class="btn btn-default btn-lg col-md-offset-2 col-md-8 col-xs-12" id="submitButton" value="Submit">Show Map</button>
+        </div>
+    </div>
+    <br />
+    <br />
+    <hr />
+    <br />
+    <br />
+    <div>
+        <div class="form-group">
+            <label for="dateInfo" class="control-label col-md-2">Date Between </label>
+            <div class="col-md-4">
+                <input type="text" name="dateOne" id="dateOne" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="dateInfo" class="control-label col-md-2">And</label>
+            <div class="col-md-4">
+                <input type="text" name="dateTwo" id="dateTwo" class="form-control">
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <hr />
+
+}
+
+@section Scripts {
+    <script>
+
+        $(document).ready(function () {
+
+
+            $('#dateOne').datepicker({
+
+            });
+
+            $('#dateTwo').datepicker({
+
+            });
+
+            var dateDataOne;
+            var dateDataTwo;
+            $('#dateOne').change(function () {
+                var optionSelected = $(this).val();
+                var myData = { date: optionSelected };
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("ConvertDate", "Map")',
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(myData),
+                    dataType: "json",
+                    success: function (data) {
+                        dateDataOne = data[0].Value;
+                    }
+
+                });
+            });
+
+            $('#dateTwo').change(function () {
+                var optionSelected = $(this).val();
+                var myData = { date: optionSelected };
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("ConvertDate", "Map")',
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(myData),
+                    dataType: "json",
+                    success: function (data) {
+                        dateDataTwo = data[0].Value;
+                    }
+
+                });
+            });
+
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("GetDiseases", "Map")',
+                contentType: "application/json; charset=utf-8",
+
+                success: function (data) {
+                    $('#diseaseName').empty().append('<option value="">Select Disease</option>');
+                    $.each(data, function (index, value) {
+                        $('#diseaseName').append($('<option />', {
+                            value: value.DiseaseId,
+                            text: value.Name
+                        }));
+                    });
+                },
+            });
+
+
+            $('#showDetailButton').click(function () {
+
+                var diseaseId = $('#diseaseName option:selected').index();
+
+                var myData = { DiseaseId: diseaseId, DateOne: dateDataOne, DateTwo: dateDataTwo };
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("GetResult", "Map")',
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(myData),
+                    dataType: "json",
+
+                });
+            });
+
+        });
+    </script>
+}

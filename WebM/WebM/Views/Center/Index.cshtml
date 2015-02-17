@@ -1,0 +1,13 @@
+﻿@model IEnumerable<WebM.Models.Center>
+
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Center</h2>
+
+
+<input type="button" value="Doctors Entry" class="btn btn-default btn-lg col-md-4 col-xs-12" onclick=" location.href='@Url.Action("Index", "Doctor")' " />
+<input type="button" value="Treatment" class="btn btn-default btn-lg col-md-4 col-xs-12" onclick=" location.href='@Url.Action("Create", "Treatment")' " />
+<input type="button" value="Medicine Stock Report" class="btn btn-default btn-lg col-md-4 col-xs-12" onclick=" location.href='@Url.Action("MedicineStockReport", "Center")' " />
+
+

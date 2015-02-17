@@ -1,0 +1,115 @@
+﻿@model WebM.Models.Center
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Center</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                <input type="text" name="CenterName" id="centerName" class="form-control col-md-6">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="districtInfo" class="control-label col-md-2">District Name</label>
+            <div class="col-md-10">
+                <select class="form-control col-md-6" id="districtName"></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="thanaInfo" class="control-label col-md-2">Thana Name</label>
+            <div class="col-md-10">
+                <select class="form-control col-md-6" id="thanaName"></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="thanaInfo" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <button type="button" class="btn btn-default btn-lg col-md-4 col-xs-4" id="submitButton">Create</button>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("GetDistrict", "Center")',
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    $('#districtName').empty().append('<option  value="">Select District</option>');
+                    $.each(data, function (index, value) {
+                        $('#districtName').append($('<option/>', {
+                            value: value.DistrictId,
+                            text: value.Name
+                        }));
+                    });
+                },
+            });
+
+            $("#districtName").change(function () {
+                var optionSelected = $(this).find("option:selected");
+                var myData = { DistrictId: optionSelected.val() };
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("FindThanas", "Center")',
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(myData),
+                    dataType: "json",
+                    success: function (data) {
+                        $('#thanaName').empty().append('<option  value="">Select Thana</option>');
+                        $.each(data, function (index, value) {
+                            $('#thanaName').append($('<option/>', {
+                                value: value.ThanaId,
+                                text: value.Name
+                            }));
+                        });
+                    },
+                });
+
+                $("#submitButton").click(function () {
+
+                    var centerName = $("#centerName").val();
+                    var districtSelected = $('#districtName option:selected').text();
+                    var thanaSelected = $('#thanaName option:selected').text();
+                    var myDa = { Name: centerName, District: districtSelected, Thana: thanaSelected };
+                    var doctorData = "A New Center Has Been Created";
+                    alert(doctorData);
+                    $.ajax({
+                        type: "POST",
+                        url: '@Url.Action("Create", "Center")',
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify(myDa),
+                        dataType: "json"
+
+                    });
+                });
+
+            });
+
+        });
+
+    </script>
+}

@@ -1,0 +1,118 @@
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\WebM.dll.config
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\WebM.dll
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\WebM.pdb
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Antlr3.Runtime.dll
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\EntityFramework.dll
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\EntityFramework.SqlServer.dll
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Microsoft.Owin.dll
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Microsoft.Owin.Security.dll
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Newtonsoft.Json.dll
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Owin.dll
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\System.Web.Helpers.dll
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\System.Web.Mvc.dll
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\System.Web.Optimization.dll
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\System.Web.Razor.dll
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\System.Web.WebPages.dll
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\System.Web.WebPages.Razor.dll
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\WebGrease.dll
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Antlr3.Runtime.pdb
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\EntityFramework.xml
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\EntityFramework.SqlServer.xml
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Microsoft.Owin.xml
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Microsoft.Owin.Security.xml
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Newtonsoft.Json.xml
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\System.Web.Helpers.xml
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\System.Web.Mvc.xml
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\System.Web.Optimization.xml
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\System.Web.Razor.xml
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\System.Web.WebPages.xml
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\System.Web.WebPages.Razor.xml
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\obj\Debug\WebM.csprojResolveAssemblyReference.cache
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\obj\Debug\WebM.dll
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\obj\Debug\WebM.pdb
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\obj\Debug\WebM.Migrations.one.resources
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\obj\Debug\WebM.csproj.GenerateResource.Cache
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Aspose.Pdf.dll
+C:\Users\Khan\Documents\Visual Studio 2013\Projects\WebM\WebM\bin\Aspose.Pdf.xml
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\WebM.dll.config
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\WebM.dll
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\WebM.pdb
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Antlr3.Runtime.dll
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Aspose.Pdf.dll
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\EntityFramework.dll
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\EntityFramework.SqlServer.dll
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Microsoft.AspNet.Identity.Core.dll
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Microsoft.Owin.dll
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Microsoft.Owin.Security.Cookies.dll
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Microsoft.Owin.Security.dll
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Microsoft.Owin.Security.Facebook.dll
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Microsoft.Owin.Security.Google.dll
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Microsoft.Owin.Security.OAuth.dll
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Microsoft.Owin.Security.Twitter.dll
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Microsoft.Web.Infrastructure.dll
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Newtonsoft.Json.dll
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Owin.dll
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\System.Web.Helpers.dll
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\System.Web.Mvc.dll
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\System.Web.Optimization.dll
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\System.Web.Razor.dll
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\System.Web.WebPages.Deployment.dll
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\System.Web.WebPages.dll
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\System.Web.WebPages.Razor.dll
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\WebGrease.dll
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Antlr3.Runtime.pdb
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Aspose.Pdf.xml
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\EntityFramework.xml
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\EntityFramework.SqlServer.xml
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Microsoft.AspNet.Identity.Core.xml
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Microsoft.Owin.xml
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Microsoft.Owin.Security.xml
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Microsoft.Owin.Security.Cookies.xml
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Microsoft.Owin.Security.Facebook.xml
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Microsoft.Owin.Security.Google.xml
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Microsoft.Owin.Security.OAuth.xml
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Microsoft.Owin.Security.Twitter.xml
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\Newtonsoft.Json.xml
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\System.Web.Helpers.xml
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\System.Web.Mvc.xml
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\System.Web.Optimization.xml
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\System.Web.Razor.xml
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\System.Web.WebPages.xml
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\System.Web.WebPages.Deployment.xml
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\bin\System.Web.WebPages.Razor.xml
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\obj\Debug\WebM.csprojResolveAssemblyReference.cache
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\obj\Debug\WebM.Migrations.one.resources
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\obj\Debug\WebM.csproj.GenerateResource.Cache
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\obj\Debug\WebM.dll
+E:\Work\Project Asp.net-51\Community Medicine Bangladesh\WebM\WebM\obj\Debug\WebM.pdb

@@ -1,0 +1,106 @@
+﻿@model WebM.Models.Prescription
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Prescription</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Disease.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Disease.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Doctor.Nmae)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Doctor.Nmae)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Medicine.GenericName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Medicine.GenericName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Patient.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patient.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VoterId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VoterId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Observation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Observation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dose)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dose)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BeforeAfter)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BeforeAfter)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuantityGiven)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuantityGiven)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Note)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PrescriptionId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

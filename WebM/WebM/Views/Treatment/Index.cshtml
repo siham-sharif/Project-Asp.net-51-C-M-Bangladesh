@@ -1,0 +1,93 @@
+﻿@model IEnumerable<WebM.Models.Prescription>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Disease.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Doctor.Nmae)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Medicine.GenericName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Patient.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VoterId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Observation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dose)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BeforeAfter)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuantityGiven)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Note)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Disease.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Doctor.Nmae)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Medicine.GenericName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Patient.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VoterId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Observation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dose)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BeforeAfter)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuantityGiven)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Note)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PrescriptionId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PrescriptionId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PrescriptionId })
+        </td>
+    </tr>
+}
+
+</table>

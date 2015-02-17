@@ -1,0 +1,105 @@
+﻿@model WebM.Models.Medicine
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Medicine</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GenericName, new { @class = "control-label col-md-2" })
+            <input type="text" name="GenericName" id="genericName" class="form-control col-md-6">
+
+        </div>
+        <div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Quantity, new { @class = "control-label col-md-2" })
+                <input type="text" name="Quantity" id="quantity" class="form-control col-md-6">
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.QuantityUnit, new { @class = "control-label col-md-2" })
+                <select class="form-control col-md-4" id="unitQuantity"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="button" value="Create" class="btn btn-default btn-lg col-md-offset-2 col-md-8" id="createButton" />
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("GetUnit", "Medicine")',
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    $('#unitQuantity').empty().append('<option value="">Select Unit</option>');
+                    $.each(data, function (index, valueo) {
+                        $('#unitQuantity').append($('<option />', {
+                            value: valueo.Id,
+                            text: valueo.Value
+                        }));
+                    });
+                },
+            });
+
+
+            $("#unitQuantity").change(function () {
+                var optionSelected = $(this).find("option:selected");
+                var myData = { GenericName: $('#genericName').val(), Quantity: $('#quantity').val(), UnitQuantity: $('#unitQuantity option:selected').text() };
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("CheckUnique", "Medicine")',
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(myData),
+                    dataType: "json",
+                    success: function (data) {
+
+                        if (data[0].Value=="false") {
+                            $('#genericName').val("");
+                            $('#quantity').val("");
+                            alert("This medicine already exist");
+                        }
+                      
+                    },
+                });
+            });
+
+            $('#createButton').click(function () {
+
+
+                var myData = { GenericName: $('#genericName').val(), Quantity: $('#quantity').val(), UnitQuantity: $('#unitQuantity option:selected').text() };
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Create", "Medicine")',
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(myData),
+                    dataType: "json"
+
+                });
+            });
+
+        });
+    </script>
+}

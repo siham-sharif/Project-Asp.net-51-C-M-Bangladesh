@@ -1,0 +1,369 @@
+﻿@model WebM.Models.Prescription
+
+@{
+    ViewBag.Title = "Create";
+
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("ShowAllHistory", "Treatment"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Prescription</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @Html.Label("Voter Id", new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                <input type="text" name="VoterId" id="voterId" class="form-control">
+            </div>
+
+            <div>
+                <div class="col-md-6">
+                    <button type="button" class="btn btn-default col-md-6 col-xs-6" id="showDetailButton">Show Details</button>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+            @Html.Label("Name", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" name="patientName" id="patientName" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Address", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" name="patientAddress" id="patientAddress" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Age", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" name="age" id="age" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Service Given", new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                <input type="text" name="serviceGiven" id="serviceGiven" class="form-control">
+            </div>
+            @Html.Label("Times", new { @class = "control-label col-md-1" })
+        </div>
+
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-default btn-lg col-md-offset-2 col-md-8 col-xs-12" id="submitButton" value="Submit">Show All History</button>
+
+    </div>
+
+      <!--#############################################################################################-->
+}
+
+<br /><br /><hr />
+
+<div>
+
+    <div class="form-group">
+        @Html.Label("Observation", new { @class = "control-label col-md-1" })
+        <div class="col-md-3">
+            <input type="text" name="observation" id="observation" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="dateInfo" class="control-label col-md-1">Date</label>
+        <div class="col-md-3">
+            <input type="text" id="date" size="30">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="doctorInfo" class="control-label col-md-1">Doctor</label>
+        <div class="col-md-3">
+            <select class="form-control " id="doctorName"></select>
+        </div>
+    </div>
+</div>
+
+<br /><br /><br />
+
+<div>
+
+    <div class="form-group">
+        <label for="diseaseInfo" class="control-label col-md-1">Disease</label>
+        <div class="col-md-3">
+            <select class="form-control " id="diseaseName"></select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="medicineInfo" class="control-label col-md-1">Medicine</label>
+        <div class="col-md-3">
+            <select class="form-control " id="medicineName"></select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="doseInfo" class="control-label col-md-1">Dose</label>
+        <div class="col-md-3">
+            <select class="form-control " id="doseName"></select>
+        </div>
+    </div>
+
+</div>
+
+<br /><br /><br />
+
+<div>
+
+    <form id="myForm" class="form-group col-md-4">
+        <input type="radio" name="meal" value=" Before Meal " /> Before Meal <br />
+        <input type="radio" name="meal" value=" After Meal " /> After Meal <br />
+    </form>
+
+
+    <div class="form-group">
+        @Html.Label("Quantity Given", new { @class = "control-label col-md-1" })
+        <div class="col-md-3">
+            <input type="text" name="quantityGiven" id="quantityGiven" class="form-control ">
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.Label("Notes", new { @class = "control-label col-md-1" })
+        <div class="col-md-3">
+            <input type="text" name="notes" id="notesGiven" class="form-control ">
+        </div>
+    </div>
+</div>
+
+<br /><br /><br />
+<div>
+    <button type="button" class="btn btn-default btn-lg col-md-offset-2 col-md-8 col-xs-12" id="addButton">Add</button>
+</div>
+
+
+<table class="table" id="myTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.Label("Disease", new { @class = "control-label col-md-2" })
+            </th>
+            <th>
+                @Html.Label("Medicine", new { @class = "control-label col-md-2" })
+            </th>
+            <th>
+                @Html.Label("Dose", new { @class = "control-label col-md-2" })
+            </th>
+            <th>
+                @Html.Label("Before/After", new { @class = "control-label col-md-2" })
+            </th>
+            <th>
+                @Html.Label("Quantity Given", new { @class = "control-label col-md-2" })
+            </th>
+            <th>
+                @Html.Label("Notes", new { @class = "control-label col-md-2" })
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <th>
+                @Html.Label("", new { @class = "control-label col-md-2" })
+            </th>
+            <th>
+                @Html.Label("", new { @class = "control-label col-md-2" })
+            </th>
+            <th>
+                @Html.Label("", new { @class = "control-label col-md-2" })
+            </th>
+            <th>
+                @Html.Label("", new { @class = "control-label col-md-2" })
+            </th>
+            <th>
+                @Html.Label("", new { @class = "control-label col-md-2" })
+            </th>
+            <th>
+                @Html.Label("", new { @class = "control-label col-md-2" })
+            </th>
+        </tr>
+
+    </tbody>
+
+</table>
+
+<div>
+
+    <button type="button" class="btn btn-default btn-lg col-md-offset-2 col-md-8 " id="createButton">Create</button>
+
+</div>
+
+
+
+@section Scripts {
+    <script>
+
+        var beforeAfterMeal;
+        $('#myForm input').on('change', function () {
+            beforeAfterMeal = $('input[name="meal"]:checked', '#myForm').val();
+        });
+
+        function Prescription(date, voterId, observation, dose, beforeAfter, quantityGiven, note, patientId, doctorId, diseaseId, medicineId) {
+            this.Date = date;
+            this.VoterId = voterId;
+            this.Observation = observation;
+            this.Dose = dose;
+            this.BeforeAfter = beforeAfter;
+            this.QuantityGiven = quantityGiven;
+            this.Note = note;
+            this.PatientId = patientId;
+            this.DoctorId = doctorId;
+            this.DiseaseId = diseaseId;
+            this.MedicineId = medicineId;
+        }
+
+        var stock = new Array();
+        var date;
+
+        $(document).ready(function () {
+            $('#date').datepicker({
+            });
+
+            $('#date').change(function () {
+                var optionSelected = $(this).val();
+                var myData = { date: optionSelected };
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("ConvertDate", "Treatment")',
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(myData),
+                    dataType: "json",
+                    success: function (data) {
+                        date = data[0].Value;
+                    }
+                });
+            });
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("GetDoctors", "Treatment")',
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    $('#doctorName').empty().append('<option value="">Select Doctor</option>');
+                    $.each(data, function (index, value) {
+                        $('#doctorName').append($('<option />', {
+                            value: value.DoctorId,
+                            text: value.Name
+                        }));
+                    });
+                },
+
+            });
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("GetDiseases", "Treatment")',
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    $('#diseaseName').empty().append('<option value="">Select Disease</option>');
+                    $.each(data, function (index, value) {
+                        $('#diseaseName').append($('<option />', {
+                            value: value.DiseaseId,
+                            text: value.Name
+                        }));
+                    });
+                },
+            });
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("GetMedicines", "Treatment")',
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    $('#medicineName').empty().append('<option value="">Select Medicine</option>');
+                    $.each(data, function (index, value) {
+                        $('#medicineName').append($('<option />', {
+                            value: value.MedicineId,
+                            text: value.GenericName
+                        }));
+                    });
+                },
+            });
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("GetDoses", "Treatment")',
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    $('#doseName').empty().append('<option value="">Select Dose</option>');
+                    $.each(data, function (index, value) {
+                        $('#doseName').append($('<option />', {
+                            value: value.Id,
+                            text: value.Value
+                        }));
+                    });
+                },
+            });
+
+            $('#showDetailButton').click(function () {
+
+                var voterId = $('#voterId').val();
+
+                var myData = { VoterId: voterId };
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("GetVoter", "Treatment")',
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(myData),
+                    dataType: "json",
+                    success: function (data) {
+                        $('#patientName').val(data[0].Name);
+                        $('#patientAddress').val(data[0].Address);
+                        $('#age').val(data[0].Age);
+                        $('#serviceGiven').val(data[0].ServiceCount);
+                    },
+                });
+            });
+
+            $("#addButton").click(function () {
+
+                var voterId = $("#voterId").val();
+                var patientId = voterId;
+                var diseaseId = $('#diseaseName option:selected').index();
+                var diseaseName = $('#diseaseName option:selected').text();
+                var doctorId = $('#doctorName option:selected').index();
+                var medicineId = $('#medicineName option:selected').index();
+                var observation = $("#observation").val();
+                var dose = $('#doseName option:selected').text();
+                var beforeAfter = beforeAfterMeal;
+                var quantityGiven = $("#quantityGiven").val();
+                var note = $("#notesGiven").val();
+                var medicineSelected = $('#medicineName option:selected').text();
+                $('#myTable tbody').append('<tr><td>' + diseaseName + '</td><td>' + medicineSelected + '</td><td>' + dose + '</td><td>' + beforeAfterMeal + '</td><td>' + quantityGiven + '</td><td>' + note + '</td></tr>');
+
+                stock.push(new Prescription(date, voterId, observation, dose, beforeAfter, quantityGiven, note, patientId, doctorId, diseaseId, medicineId));
+
+            });
+
+            $("#createButton").click(function () {
+
+                var postData = JSON.stringify(stock);
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("GivePrescription", "Treatment")',
+                    contentType: "application/json; charset=utf-8",
+                    data: postData,
+                    dataType: "json",
+                    error: function (data, textStatus) { alert(textStatus); },
+                });
+            });
+        });
+    </script>
+}

@@ -1,0 +1,147 @@
+﻿@using System.Web.UI.WebControls
+@using WebM.Models
+@model List<WebM.Models.Report>
+
+
+@section JavaScript
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/sorttable.js")"></script>
+}
+
+@{
+    ViewBag.Title = "Index";
+    
+}
+<br /><br /><br /><br />
+<div class="form-group">
+    <label for="diseaseInfo" class="control-label col-md-2">Disease</label>
+    <div class="col-md-6">
+        <select class="form-control " id="diseaseName"></select>
+    </div>
+    <div class="col-md-4">
+        <button type="button" class="btn btn-default col-md-10 col-xs-10" id="showDetailButton">Show Details</button>
+    </div>
+</div>
+<br /><br /><hr /><br /><br />
+<div>
+    <div class="form-group">
+        <label for="dateInfo" class="control-label col-md-2">Date Between </label>
+        <div class="col-md-4">
+            <input type="text" id="dateOne" class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="dateInfo" class="control-label col-md-2">And</label>
+        <div class="col-md-4">
+            <input type="text" id="dateTwo" class="form-control">
+        </div>
+    </div>
+</div>
+<br /><br /><hr />
+
+
+<table class="table" id="myTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.Label("District Name", new { @class = "control-label col-md-4" })
+            </th>
+            <th>
+                @Html.Label("Total Patient", new { @class = "control-label col-md-4" })
+            </th>
+            <th>
+                @Html.Label("Affected Population Percentage", new { @class = "control-label col-md-4" })
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <th>
+                @Html.Label("", new { @class = "control-label col-md-4" })
+            </th>
+            <th>
+                @Html.Label("", new {@class = "control-label col-md-4"})
+            </th>
+            <th>
+                @Html.Label("", new { @class = "control-label col-md-4" })
+            </th>
+        </tr>
+
+    </tbody>
+
+</table>
+<hr />
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#dateOne').datepicker({
+            });
+            $('#dateTwo').datepicker({
+            });
+            var dateDataOne;
+            var dateDataTwo;
+            $('#dateOne').change(function () {
+                var optionSelected = $(this).val();
+                var myData = { date: optionSelected };
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("ConvertDate", "DiseaseWiseReport")',
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(myData),
+                    dataType: "json",
+                    success: function (data) {
+                        dateDataOne = data[0].Value;
+                    }
+                });
+            });
+            $('#dateTwo').change(function () {
+                var optionSelected = $(this).val();
+                var myData = { date: optionSelected };
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("ConvertDate", "DiseaseWiseReport")',
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(myData),
+                    dataType: "json",
+                    success: function (data) {
+                        dateDataTwo = data[0].Value;
+                    }
+                });
+            });
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("GetDiseases", "DiseaseWiseReport")',
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    $('#diseaseName').empty().append('<option value="">Select Disease</option>');
+                    $.each(data, function (index, value) {
+                        $('#diseaseName').append($('<option />', {
+                            value: value.DiseaseId,
+                            text: value.Name
+                        }));
+                    });
+                },
+            });
+            $('#showDetailButton').click(function () {
+                var diseaseId = $('#diseaseName option:selected').index();
+                var myData = { DiseaseId: diseaseId, DateOne: dateDataOne, DateTwo: dateDataTwo };
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("GetResult", "DiseaseWiseReport")',
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(myData),
+                    dataType: "json",
+                    success: function (data) {
+                       
+                        $.each(data, function (index, value) {
+                            $('#myTable tbody').append('<tr><td>' + data[index].DistrictName + '</td><td>' + data[index].TotalPatient + '</td><td>' + data[index].AffectedPopulationPercentage + '</td></tr>');
+
+                        });
+                    },
+
+                });
+            });
+        });
+    </script>
+}

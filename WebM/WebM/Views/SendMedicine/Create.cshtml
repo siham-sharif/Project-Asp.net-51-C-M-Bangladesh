@@ -1,0 +1,221 @@
+﻿@model WebM.Models.Center
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Center</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+
+        <div class="form-group">
+            <label for="districtInfo" class="control-label col-md-2">District Name</label>
+            <div class="col-md-10">
+                <select class="form-control col-md-6" id="districtName"></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="thanaInfo" class="control-label col-md-2">Thana Name</label>
+            <div class="col-md-10">
+                <select class="form-control col-md-6" id="thanaName"></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="centerInfo" class="control-label col-md-2">Center Name</label>
+            <div class="col-md-10">
+                <select class="form-control col-md-6" id="centerName"></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="medicineInfo" class="control-label col-md-2">Medicine</label>
+            <div class="col-md-10">
+                <select class="form-control col-md-6" id="medicineName"></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Quantity", new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                <input type="text" name="Quantity" id="quantity" class="form-control col-md-6">
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label for="addInfo" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <button type="button" class="btn btn-default btn-lg col-md-4 col-xs-4" id="addButton">Add</button>
+            </div>
+        </div>
+
+    </div>
+}
+
+<table class="table" id="myTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.Label("Name", new { @class = "control-label col-md-6" })
+            </th>
+            <th>
+                @Html.Label("Quantity", new { @class = "control-label col-md-6" })
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <th>
+                @Html.Label("", new { @class = "control-label col-md-6" })
+            </th>
+            <th>
+                @Html.Label("", new { @class = "control-label col-md-6" })
+            </th>
+        </tr>
+
+    </tbody>
+
+</table>
+
+<div>
+    <label for="createInfo" class="control-label col-md-2"></label>
+    <div class="col-md-10">
+        <button type="button" class="btn btn-default btn-lg col-md-4 col-xs-4" id="submitButton">Create</button>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+
+            function MedicineStock(medicineQuantity, centerSelected, medicineSelected) {
+                this.MedicineQuantity = medicineQuantity;
+                this.CenterId = centerSelected;
+                this.MedicineId = medicineSelected;
+            }
+            var stock = new Array();
+
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("GetDistrict", "SendMedicine")',
+                contentType: "application/json; charset=utf-8",
+
+                success: function (data) {
+                    $('#districtName').empty().append('<option  value="">Select District</option>');
+                    $.each(data, function (index, value) {
+                        $('#districtName').append($('<option/>', {
+                            value: value.DistrictId,
+                            text: value.Name
+                        }));
+                    });
+                },
+            });
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("GetMedicine", "SendMedicine")',
+                contentType: "application/json; charset=utf-8",
+
+                success: function (data) {
+                    $('#medicineName').empty().append('<option  value="">Select Medicine</option>');
+                    $.each(data, function (index, value) {
+                        $('#medicineName').append($('<option/>', {
+                            value: value.MedicineId,
+                            text: value.GenericName
+                        }));
+                    });
+                },
+            });
+
+            $("#districtName").change(function () {
+                var optionSelected = $(this).find("option:selected");
+                var myData = { DistrictId: optionSelected.val() };
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("FindThanas", "SendMedicine")',
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(myData),
+                    dataType: "json",
+                    success: function (data) {
+                        $('#thanaName').empty().append('<option  value="">Select Thana</option>');
+                        $.each(data, function (index, value) {
+                            $('#thanaName').append($('<option/>', {
+                                value: value.ThanaId,
+                                text: value.Name
+                            }));
+                        });
+                    },
+                });
+            });
+
+            $("#thanaName").change(function () {
+
+                var myData = { Thana: $('#thanaName option:selected').text() };
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("FindCenter", "SendMedicine")',
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(myData),
+                    dataType: "json",
+                    success: function (data) {
+                        $('#centerName').empty().append('<option  value="">Select Center</option>');
+                        $.each(data, function (index, value) {
+                            $('#centerName').append($('<option/>', {
+                                value: value.CenterId,
+                                text: value.Name
+                            }));
+                        });
+                    },
+                });
+            });
+
+
+            $("#addButton").click(function () {
+
+                var centerSelectedIndex = $('#centerName option:selected').index();
+                var centerSelectedText = $('#centerName option:selected').text();
+
+                var medicineSelectedIndex = $('#medicineName option:selected').index();
+                var medicineSelectedtext = $('#medicineName option:selected').text();
+
+                var medicineQuantity = $("#quantity").val();
+
+                $('#myTable tbody').append('<tr><td>' + medicineSelectedtext + '</td><td>' + medicineQuantity + '</td></tr>');
+
+                stock.push(new MedicineStock(medicineQuantity, centerSelectedIndex, medicineSelectedIndex));
+
+            });
+
+            $("#submitButton").click(function () {
+
+                var postData = JSON.stringify(stock);
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Create", "SendMedicine")',
+                    contentType: "application/json; charset=utf-8",
+                    data: postData,
+                    dataType: "json",                    
+                });
+            });
+
+        });
+
+    </script>
+
+}

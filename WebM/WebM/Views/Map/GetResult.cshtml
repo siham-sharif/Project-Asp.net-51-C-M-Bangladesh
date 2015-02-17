@@ -1,0 +1,52 @@
+﻿@model List<long>
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["geochart"]});
+      google.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Diseasce', 'Effected People'],
+          ['BD-A', @Model[0]],
+          ['BD-B', @Model[1]],
+          ['BD-C', @Model[2]],
+          ['BD-D', @Model[3]],
+          ['BD-E', @Model[4]],
+          ['BD-F', @Model[5]],
+		  ['BD-G', @Model[6]]
+        ]);
+
+        var options = {
+			backgroundColor: '#81d4fa',
+			legend: 'none',
+			datalessRegionColor: '#ffffff',
+			displayMode: 'regions',
+			enableRegionInteractivity: 'true',
+			resolution: 'provinces',
+			colorAxis: {values : ['0','11','31','51'],colors: ['#ffffff','#ffef99', 'orange', 'red']},
+			sizeAxis: {minValue: 1, maxValue:1,minSize:10,  maxSize: 10},
+			region:'BD',
+			keepAspectRatio: true,
+			width:1000,
+			height:700,
+			tooltip: {textStyle: {color: '#ff0000 '}, trigger:'focus'}
+
+		};
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+</head>
+<body>
+    <div id="regions_div" style="width: 900px; height: 500px;"></div>
+</body>
+</html>

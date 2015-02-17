@@ -1,0 +1,57 @@
+﻿@using System.Web.UI.WebControls
+@using WebM.Models
+
+@model List<WebM.Models.PatientHistory>
+@{
+    ViewBag.Title = "Show All History of Patients Services";
+    
+    int counter = 1;
+}
+
+<h2>ShowAllHistory</h2>
+
+
+        @Html.Label("Voter ID", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="text" name="age" id="age" value="@ViewBag.VoterId" class="form-control"> 
+        </div>
+
+
+        @Html.Label("Name", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="text" name="age" id="age" value="@ViewBag.PatientName" class="form-control"> 
+        </div>
+
+        @Html.Label("Address", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="text" name="age" id="age" value="@ViewBag.PatientAddress" class="form-control"> 
+        </div>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.Label("History")
+        </th>
+        <th>
+            @Html.Label("Center Name")
+        </th>
+        
+        <th></th>
+    </tr>
+    
+    @foreach (PatientHistory aPatientHistory in Model)
+    {
+       
+        <tr>
+            <td>
+                History @counter
+                @{ counter = counter + 1;}
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => aPatientHistory.CenterName)
+            </td>
+        </tr>
+    }
+
+</table>
